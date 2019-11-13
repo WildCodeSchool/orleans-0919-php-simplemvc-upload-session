@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date {
+    width: 100px;
+    padding: 1em;
+    border: 1px solid grey;
+}

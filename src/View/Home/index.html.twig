@@ -2,4 +2,14 @@
 
 {% block content %}
     <h1>Hello Wilder !</h1>
+    <div class="container">
+        {% for key,day in days %}
+            <div class="date">
+                {% if day.status == true %}
+                open
+                {% endif %}
+                <a href="/home/open/{{ loop.index0}}">{{ day.day|date('Y-m-d') }}</a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
