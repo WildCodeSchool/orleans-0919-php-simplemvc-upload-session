@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Student {{ student.lastname|upper }} {{ student.firstname }}</h1>
+
+    <img src="/upload/{{ student.path }}" alt="photo de {{ student.firstname }} {{ student.lastname }}"/>
+    <a href="/student/edit/{{ student.id }}">Edit</a>
+    <a href="/student/delete/{{student.id}}">Supprimer</a>
+    <a href="/student/index">Back</a>
+{% endblock %}

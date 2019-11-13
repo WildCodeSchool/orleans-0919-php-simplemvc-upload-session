@@ -16,5 +16,6 @@ define('APP_DEV', true);
 //VIew
 define('APP_VIEW_PATH', __DIR__ . '/../src/View/');
 define('APP_CACHE_PATH', __DIR__ . '/../temp/cache/');
+define('UPLOAD_PATH', __DIR__ .  '/../public/upload/');
 
 define('HOME_PAGE', 'home/index');

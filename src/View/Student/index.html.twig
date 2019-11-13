@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Students</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                <a href="/student/show/{{ student.id }}">{{ student.lastname|upper }} {{ student.firstname }}</a>
+                <img src="/upload/{{ student.path }}" alt="photo de {{ student.firstname }} {{ student.lastname }}"/>
+            </li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/student/add">Ajouter</a>
+{% endblock %}

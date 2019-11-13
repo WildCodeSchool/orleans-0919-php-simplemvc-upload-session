@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit student {{ student.title }}</h1>
+    {% include 'Student/_form.html.twig' %}
+    <img src="/upload/{{ student.path }}" alt="img"/>
+    <a href="/student/show/{{ student.id }}">Back</a>
+{% endblock %}
