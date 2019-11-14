@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Model\StudentManager;
 use \DateInterval;
 use \DatePeriod;
 use \DateTime;
@@ -25,6 +26,9 @@ class HomeController extends AbstractController
      */
     public function index(int $month = 12)
     {
+        $studentManager = new StudentManager();
+        $students = $studentManager->selectAll();
+
         $startMonth = new DateTime('01-' . $month . '-2019');
         $endMonth = new DateTime('24-' . $month . '-2019 23:59:59');
 
@@ -36,11 +40,14 @@ class HomeController extends AbstractController
         }
         if (empty($_SESSION['openDays'])) {
             shuffle($shuffleDays);
-            foreach ($shuffleDays as $shuffleDay) {
-                $_SESSION['openDays'][] = ['day' => $shuffleDay, 'status' => false];
+            foreach ($shuffleDays as $key => $shuffleDay) {
+                $_SESSION['openDays'][] = [
+                    'day'     => $shuffleDay,
+                    'status'  => false,
+                    'student' => $students[$key] ?? null,
+                ];
             }
         }
-
         return $this->twig->render('Home/index.html.twig', [
             'days' => $_SESSION['openDays'],
         ]);
